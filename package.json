@@ -1,9 +1,9 @@
 {
-  "name": "rollup-starter-project",
+  "name": "newsapp",
   "version": "1.0.0",
-  "description": "Sample project for packages built with rollup.",
-  "main": "dist/rollup-starter-project.js",
-  "jsnext:main": "dist/rollup-starter-project.mjs",
+  "description": "Protocals for netease newsapp",
+  "main": "dist/newsapp.js",
+  "jsnext:main": "dist/newsapp.mjs",
   "scripts": {
     "prebuild": "eslint lib test",
     "build": "rollup -c",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rollup/rollup-starter-project.git"
+    "url": "git+https://github.com/NetEaseMobileFE/newsapp.git"
   },
   "keywords": [
     "es6",
@@ -23,16 +23,16 @@
     "bundle",
     "browser"
   ],
-  "author": "Brian Donovan",
+  "author": "dYb",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rollup/rollup-starter-project/issues"
+    "url": "https://github.com/NetEaseMobileFE/newsapp/issues"
   },
   "files": [
     "lib",
     "dist"
   ],
-  "homepage": "https://github.com/rollup/rollup-starter-project#readme",
+  "homepage": "https://github.com/NetEaseMobileFE/newsapp#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-eslint": "^6.0.4",

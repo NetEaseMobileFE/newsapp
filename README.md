@@ -1,4 +1,6 @@
-# rollup-starter-project
+# newsapp
+
+> Start from [rollup-starter-project](https://github.com/rollup/rollup-starter-project)
 
 This package shows how to get started with [rollup][rollup] (and [babel][babel]) for writing
 npm packages using ES6 modules. Writing npm packages with a [jsnext:main][jsnext:main] allows
