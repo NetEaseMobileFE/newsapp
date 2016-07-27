@@ -1,0 +1,61 @@
+<<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>客户端接口测试</title>
+</head>
+<body>
+<button id="login">登录</button> <br/> <br/>
+<button id="copy">copy</button><input type="text"><br/> <br/>
+<button id="share1">设置分享内容</button><button id="share2">直接分享</button><br/> <br/>
+<button id="trash">trashid</button><br/> <br/>
+<button id="device">设备信息</button><br/> <br/>
+<button id="login">登录</button><br/> <br/>
+<script type="text/javascript" src="newsapp.js"></script>
+<script type="text/javascript">
+  var $ = document.getElementById.bind(document)
+  $('login').onclick = function() {
+    NEWSAPPAPI.login(function(userInfo) {
+      alert(JSON.stringify(userInfo))
+    })
+  }
+  $('copy').onclick = function() {
+    NEWSAPPAPI.copy('哈哈哈啊哈哈')
+  }
+  $('share1').onclick = function() {
+    NEWSAPPAPI.share.setShareData({
+      wbText: '微博文案',
+      wbPhoto: '微博图片',
+      wxText: '微信文案',
+      wxTitle: '微信标题',
+      wxUrl: '微信地址',
+      wxPhoto: '微信图片'
+    })
+  }
+  $('share2').onclick = function() {
+    NEWSAPPAPI.share.doSharing({
+      wbText: '微博文案2',
+      wbPhoto: '微博图片2',
+      wxText: '微信文案2',
+      wxTitle: '微信标题2',
+      wxUrl: '微信地址2',
+      wxPhoto: '微信图片2'
+    }, function() {
+      alert('share done')
+    })
+  }
+  $('trash').onclick = function() {
+    NEWSAPPAPI.getTrashId(function(userInfo) {
+      alert(JSON.stringify(userInfo))
+    })
+  }
+  $('device').onclick = function() {
+    NEWSAPPAPI.getDeviceInfo(function(userInfo) {
+      alert(JSON.stringify(userInfo))
+    })
+  }
+
+</script>
+</body>
+</html>
