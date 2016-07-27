@@ -25,14 +25,24 @@ NEWSAPPAPI.login(callback)
   wxUrl: '微信地址',
   wxPhoto: '微信图片'
 }
-NEWSAPPAPI.setShareData(shareData)
-NEWSAPPAPI.doSharing([shareData,] callback)
+NEWSAPPAPI.share.setData(shareData)
+NEWSAPPAPI.share.excute([shareData,] callback)
 
 // device
 NEWSAPPAPI.getDeviceInfo(callback)
 
 // trashId
 NEWSAPPAPI.getTrashId(callback)
+
+// location
+NEWSAPPAPI.location.get(callback)
+NEWSAPPAPI.location.change(callback)
+
+// encrypt
+NEWSAPPAPI.encrypt(callback)
+
+// open
+NEWSAPPAPI.open(param)
 
 ```
 
