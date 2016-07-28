@@ -12,6 +12,9 @@
 <button id="trash">trashid</button><br/> <br/>
 <button id="device">设备信息</button><br/> <br/>
 <button id="login">登录</button><br/> <br/>
+<button id="upload1">上传图片</button><button id="upload2">上传图片(android打开摄像头)</button><br/> <br/>
+<br/> <br/>
+
 <script type="text/javascript" src="newsapp.js"></script>
 <script type="text/javascript">
   var $ = document.getElementById.bind(document)
@@ -53,6 +56,21 @@
   $('device').onclick = function() {
     NEWSAPPAPI.getDeviceInfo(function(userInfo) {
       alert(JSON.stringify(userInfo))
+    })
+  }
+  $('upload1').onclick = function() {
+    NEWSAPPAPI.upload(function(img) {
+      alert(img)
+    })
+  }
+  $('upload2').onclick = function() {
+    NEWSAPPAPI.upload({ 
+      width: 300, 
+      type: 'camera',
+      loadingStart: () => console.log('starting'),
+      loadingEnd: () => console.log('ended'),
+    }, function(img) {
+      alert(img)
     })
   }
 

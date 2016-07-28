@@ -1,5 +1,6 @@
 # newsapp
 
+Interfaces for netease newsapp
 > Start from [rollup-starter-project](https://github.com/rollup/rollup-starter-project)
 
 ## Usage
@@ -12,7 +13,6 @@ import NEWSAPPAPI from 'newsapp'
 import login from 'newsapp/lib/login'
 ```
 ## APIs
-```
 // login
 NEWSAPPAPI.login(callback)
 
@@ -26,7 +26,7 @@ NEWSAPPAPI.login(callback)
   wxPhoto: '微信图片'
 }
 NEWSAPPAPI.share.setData(shareData)
-NEWSAPPAPI.share.excute([shareData,] callback)
+NEWSAPPAPI.share.invoke([shareData,] callback)
 
 // device
 NEWSAPPAPI.getDeviceInfo(callback)
@@ -44,6 +44,19 @@ NEWSAPPAPI.encrypt(callback)
 // open
 NEWSAPPAPI.open(param)
 
-```
+// copy
+NEWSAPPAPI.open(callback)
+
+// upload
+NEWSAPPAPI.upload([options,] callback)
+options : {
+  width,
+  height,
+  loadingStart, // for ios
+  loadingEnd, // for ios
+  type: 'album' or 'camera' // for android
+}
+
+
 
 ## Changelogs
