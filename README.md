@@ -11,8 +11,13 @@ npm i --save newsapp
 import NEWSAPPAPI from 'newsapp'
 // or
 import login from 'newsapp/lib/login'
+
+// or
+<scritp src="http://img6.cache.netease.com/utf8/3g/libs/newsapp.{{version}}.js"></scritp>
 ```
 ## APIs
+
+```
 // login
 NEWSAPPAPI.login(callback)
 
@@ -57,6 +62,6 @@ options : {
   type: 'album' or 'camera' // for android
 }
 
-
+```
 
 ## Changelogs
