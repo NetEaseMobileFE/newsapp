@@ -24,7 +24,7 @@
     NEWSAPPAPI.copy('哈哈哈啊哈哈')
   }
   $('share1').onclick = function() {
-    NEWSAPPAPI.share.setShareData({
+    NEWSAPPAPI.share.setData({
       wbText: '微博文案',
       wbPhoto: '微博图片',
       wxText: '微信文案',
@@ -34,7 +34,7 @@
     })
   }
   $('share2').onclick = function() {
-    NEWSAPPAPI.share.doSharing({
+    NEWSAPPAPI.share.invoke({
       wbText: '微博文案2',
       wbPhoto: '微博图片2',
       wxText: '微信文案2',
