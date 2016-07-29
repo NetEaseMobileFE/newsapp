@@ -1,15 +1,15 @@
 {
   "name": "newsapp",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Protocals for netease newsapp",
   "main": "dist/newsapp.js",
   "jsnext:main": "dist/newsapp.mjs",
   "scripts": {
-    "prebuild": "eslint lib test",
     "build": "rollup -c",
     "watch": "rollup -c -w",
     "pretest": "npm run build",
-    "test": "mocha"
+    "test": "mocha",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
