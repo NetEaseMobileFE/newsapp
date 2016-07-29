@@ -19,7 +19,7 @@ import login from 'newsapp/lib/login'
 
 ```
 // login
-NEWSAPPAPI.login(callback)
+NEWSAPPAPI.login([showLogin,] callback)
 
 // share
 {
