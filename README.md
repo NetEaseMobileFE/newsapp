@@ -62,6 +62,12 @@ options : {
   type: 'album' or 'camera' // for android
 }
 
+// ui
+NEWSAPPAPI.ui.button(text, function) // set button
+NEWSAPPAPI.ui.button() // hide button
+NEWSAPPAPI.ui.title(text)
+
+
 ```
 
 ## Changelogs
