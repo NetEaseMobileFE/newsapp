@@ -40,14 +40,29 @@
     <script type="text/javascript">
       var $ = document.getElementById.bind(document)
 
-      NEWSAPPAPI.ui.button('点击', function() {
-        alert(1)
-      })
 
       $('login').onclick = function() {
         NEWSAPPAPI.login(function(userInfo) {
-          alert(JSON.stringify(userInfo))
+          alert(1)
         })
+        NEWSAPPAPI.login(function(userInfo) {
+          alert(2)
+        })
+        NEWSAPPAPI.login(function(userInfo) {
+          alert(3)
+        })
+        // NEWSAPPAPI.getTrashId(function(userInfo) {
+        //   alert(4)
+        // })
+        NEWSAPPAPI.login(function(userInfo) {
+          alert(5)
+        })
+        NEWSAPPAPI.ui.button('刷新')
+
+        NEWSAPPAPI.login(function(userInfo) {
+          alert(6)
+        })
+
       }
       $('copy').onclick = function() {
         NEWSAPPAPI.copy('哈哈哈啊哈哈')
