@@ -8,7 +8,6 @@
   </head>
 
   <body>
-    <script src="//console.re/connector.js" data-channel="try-a55a-889e-7b2f" id="consolerescript"></script>
     <button id="login">登录</button>
     <br/>
     <br/>
@@ -40,7 +39,6 @@
     <script type="text/javascript">
       var $ = document.getElementById.bind(document)
 
-
       $('login').onclick = function() {
         NEWSAPPAPI.login(function(userInfo) {
           alert(1)
@@ -48,17 +46,36 @@
         NEWSAPPAPI.login(function(userInfo) {
           alert(2)
         })
+        NEWSAPPAPI.trash(function(a) {
+          alert(2.01)
+          console.log(a)
+        })
+        NEWSAPPAPI.share.invoke(function() {
+          alert(2.1)
+        })
         // NEWSAPPAPI.getTrashId(function(userInfo) {
         //   alert(4)
         // })
         NEWSAPPAPI.ui.button('刷新')
         NEWSAPPAPI.ui.title('标题')
-
-        NEWSAPPAPI.login(function(userInfo) {
+        NEWSAPPAPI.copy('标题')
+        NEWSAPPAPI.device(function() {
+          alert(2.2)
+        })
+        NEWSAPPAPI.location.get(function(){
+          alert(2.3)
+        })
+        NEWSAPPAPI.encrypt('哈哈', function(){
           alert(3)
         })
-        NEWSAPPAPI.open('951C0KA70001124J')
-
+        NEWSAPPAPI.open('BNTSL4G800031H2L')
+        NEWSAPPAPI.location.change(function(){
+          alert(3.1)
+        })
+        NEWSAPPAPI.login(function(userInfo) {
+          alert(4)
+        })
+        console.log(NEWSAPPAPI.queue.get())
       }
       $('copy').onclick = function() {
         NEWSAPPAPI.copy('哈哈哈啊哈哈')
