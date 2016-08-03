@@ -40,12 +40,9 @@
     <script type="text/javascript">
       var $ = document.getElementById.bind(document)
 
-      NEWSAPPAPI.ui.button('点击', function() {
-        alert(1)
-      })
 
       $('login').onclick = function() {
-        NEWSAPPAPI.login(function(userInfo) {
+        NEWSAPPAPI.login(false, function(userInfo) {
           alert(JSON.stringify(userInfo))
         })
       }
