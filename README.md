@@ -64,7 +64,7 @@ options : {
 
 // ui
 NEWSAPPAPI.ui.button(text, function) // set button
-NEWSAPPAPI.ui.button() // hide button
+NEWSAPPAPI.ui.button(' ') // hide button
 NEWSAPPAPI.ui.title(text)
 
 

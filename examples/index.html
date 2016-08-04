@@ -8,8 +8,8 @@
   </head>
 
   <body>
-    <script src="//console.re/connector.js" data-channel="try-a55a-889e-7b2f" id="consolerescript"></script>
     <button id="login">登录</button>
+    <button id="login1">调用</button>
     <br/>
     <br/>
     <button id="copy">copy</button>
@@ -39,12 +39,35 @@
     <script type="text/javascript" src="newsapp.js"></script>
     <script type="text/javascript">
       var $ = document.getElementById.bind(document)
-
+      $('login1').onclick = function() {
+        NEWSAPPAPI.share.setData({
+          wbText: '微博文案',
+          wbPhoto: '微博图片',
+          wxText: '微信文案',
+          wxTitle: '微信标题',
+          wxUrl: '微信地址',
+          wxPhoto: '微信图片'
+        })
+        NEWSAPPAPI.ui.button('刷新')
+        NEWSAPPAPI.ui.title('标题')
+      }
 
       $('login').onclick = function() {
-        NEWSAPPAPI.login(false, function(userInfo) {
+        NEWSAPPAPI.login(function(userInfo) {
           alert(JSON.stringify(userInfo))
+          alert(document.cookie)
         })
+        // NEWSAPPAPI.getTrashId(function(userInfo) {
+        //   alert(4)
+        // })
+        NEWSAPPAPI.ui.button('刷新')
+        NEWSAPPAPI.ui.title('标题')
+
+        NEWSAPPAPI.login(function(userInfo) {
+          alert(3)
+        })
+        NEWSAPPAPI.open('951C0KA70001124J')
+
       }
       $('copy').onclick = function() {
         NEWSAPPAPI.copy('哈哈哈啊哈哈')
