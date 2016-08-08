@@ -18,6 +18,15 @@ import login from 'newsapp/lib/login'
 ## APIs
 
 ```
+// copy
+NEWSAPPAPI.copy(text)
+
+// device
+NEWSAPPAPI.device(callback)
+
+// encrypt
+NEWSAPPAPI.encrypt(text, callback)
+
 // login
 NEWSAPPAPI.login([showLogin,] callback)
 
@@ -33,24 +42,15 @@ NEWSAPPAPI.login([showLogin,] callback)
 NEWSAPPAPI.share.setData(shareData)
 NEWSAPPAPI.share.invoke([shareData,] callback)
 
-// device
-NEWSAPPAPI.getDeviceInfo(callback)
-
 // trashId
-NEWSAPPAPI.getTrashId(callback)
+NEWSAPPAPI.trash(callback)
 
 // location
 NEWSAPPAPI.location.get(callback)
 NEWSAPPAPI.location.change(callback)
 
-// encrypt
-NEWSAPPAPI.encrypt(callback)
-
 // open
 NEWSAPPAPI.open(param)
-
-// copy
-NEWSAPPAPI.open(callback)
 
 // upload
 NEWSAPPAPI.upload([options,] callback)
@@ -66,7 +66,6 @@ options : {
 NEWSAPPAPI.ui.button(text, function) // set button
 NEWSAPPAPI.ui.button(' ') // hide button
 NEWSAPPAPI.ui.title(text)
-
 
 ```
 

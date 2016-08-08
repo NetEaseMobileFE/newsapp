@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
   <html>
 
   <head>
@@ -8,8 +8,21 @@
   </head>
 
   <body>
-    <button id="login">登录</button>
-    <button id="login1">调用</button>
+    <button id="invoke">测试并发调用</button>
+    <script>
+    var $ = document.getElementById.bind(document)
+    $('invoke').onclick = function() {
+      NEWSAPPAPI.login(function(a) {
+        alert(JSON.stringify(a))
+      })
+      NEWSAPPAPI.ui.button('刷新')
+      NEWSAPPAPI.ui.title('标题')
+    }
+    </script>
+    <br/>
+    <br/>
+    <button id="login1">获取用户信息（不打开客户端）</button>
+    <button id="login2">登录</button>
     <br/>
     <br/>
     <button id="copy">copy</button>
@@ -21,16 +34,34 @@
     <br/>
     <br/>
     <button id="trash">trashid</button>
+    <script>
+    $('trash').onclick = function() {
+      NEWSAPPAPI.trash(function(r) {
+        alert(JSON.stringify(r))
+      })
+    }
+    </script>
     <br/>
     <br/>
     <button id="device">设备信息</button>
-    <br/>
-    <br/>
-    <button id="login">登录</button>
+    <script>
+    $('device').onclick = function() {
+      NEWSAPPAPI.device(function(r) {
+        alert(JSON.stringify(r))
+      })
+    }
+    </script>
     <br/>
     <br/>
     <button id="upload1">上传图片</button>
     <button id="upload2">上传图片(android打开摄像头)</button>
+    <script>
+    $('upload1').onclick = function() {
+      NEWSAPPAPI.upload(function(r) {
+        alert(JSON.stringify(r))
+      })
+    }
+    </script>
     <br/>
     <br/>
     <br/>
@@ -38,36 +69,16 @@
 
     <script type="text/javascript" src="newsapp.js"></script>
     <script type="text/javascript">
-      var $ = document.getElementById.bind(document)
       $('login1').onclick = function() {
-        NEWSAPPAPI.share.setData({
-          wbText: '微博文案',
-          wbPhoto: '微博图片',
-          wxText: '微信文案',
-          wxTitle: '微信标题',
-          wxUrl: '微信地址',
-          wxPhoto: '微信图片'
-        })
-        NEWSAPPAPI.ui.button('刷新')
-        NEWSAPPAPI.ui.title('标题')
-      }
-
-      $('login').onclick = function() {
         NEWSAPPAPI.login(function(userInfo) {
           alert(JSON.stringify(userInfo))
-          alert(document.cookie)
+          alert('cookie ' + document.cookie)
         })
-        // NEWSAPPAPI.getTrashId(function(userInfo) {
-        //   alert(4)
-        // })
-        NEWSAPPAPI.ui.button('刷新')
-        NEWSAPPAPI.ui.title('标题')
-
+      }
+      $('login2').onclick = function() {
         NEWSAPPAPI.login(function(userInfo) {
-          alert(3)
+          alert(JSON.stringify(userInfo))
         })
-        NEWSAPPAPI.open('951C0KA70001124J')
-
       }
       $('copy').onclick = function() {
         NEWSAPPAPI.copy('哈哈哈啊哈哈')
@@ -94,16 +105,7 @@
           alert('share done')
         })
       }
-      $('trash').onclick = function() {
-        NEWSAPPAPI.getTrashId(function(userInfo) {
-          alert(JSON.stringify(userInfo))
-        })
-      }
-      $('device').onclick = function() {
-        NEWSAPPAPI.getDeviceInfo(function(userInfo) {
-          alert(JSON.stringify(userInfo))
-        })
-      }
+
       $('upload1').onclick = function() {
         NEWSAPPAPI.upload(function(img) {
           alert(img)
