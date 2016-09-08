@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+  <html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>demo</title>
+    <script type="text/javascript" src="http://img6.cache.netease.com/utf8/3g/libs/newsapp.1.1.0.js"></script>
+    <style>
+      .p {
+        margin-bottom: 15px;
+        padding: 15px 15px 0;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+      pre {
+        padding-left: 20px;
+        padding-top: 20px;
+        background-color: #f7f7f9;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      var $ = document.getElementById.bind(document)
+    </script>
+    <div class="p">
+      <button id="invoke">测试并发调用</button>
+      <script>
+      $('invoke').onclick = function() {
+        NEWSAPPAPI.device(function(e){
+          alert(e)
+        })
+        NEWSAPPAPI.share.invoke({
+          wbText: '微博文案2',
+          wbPhoto: '微博图片2',
+          wxText: '微信文案2',
+          wxTitle: '微信标题2',
+          wxUrl: '微信地址2',
+          wxPhoto: '微信图片2'
+        }, function() {
+          alert('share done')
+        })
+      }
+      </script>
+      <pre>
+NEWSAPPAPI.device(function(e){
+  alert(e)
+})
+NEWSAPPAPI.share.invoke({
+  wbText: '微博文案2',
+  wbPhoto: '微博图片2',
+  wxText: '微信文案2',
+  wxTitle: '微信标题2',
+  wxUrl: '微信地址2',
+  wxPhoto: '微信图片2'
+}, function() {
+  alert('share done')
+})
+      </pre>
+    </div>
+    <div class="p">
+      <button id="login1">获取用户信息（不打开客户端）</button>
+      <button id="login2">登录</button>
+      <script type="text/javascript">
+        $('login1').onclick = function() {
+          NEWSAPPAPI.login(function(userInfo) {
+            alert(JSON.stringify(userInfo))
+            alert('cookie ' + document.cookie)
+          })
+        }
+        $('login2').onclick = function() {
+          NEWSAPPAPI.login(function(userInfo) {
+            alert(JSON.stringify(userInfo))
+          })
+        }
+      </script>
+      <pre>
+NEWSAPPAPI.login(function(userInfo) {
+  alert(JSON.stringify(userInfo))
+  alert('cookie ' + document.cookie)
+})
+NEWSAPPAPI.login(function(userInfo) {
+  alert(JSON.stringify(userInfo))
+})
+      </pre>
+    </div>
+    <div class="p">
+      <button id="copy">copy</button>
+      <input type="text" placeholder="test copied text here">
+      <script>
+        $('copy').onclick = function() {
+          NEWSAPPAPI.copy('哈哈哈啊哈哈')
+        }
+      </script>
+      <pre>
+$('copy').onclick = function() {
+  NEWSAPPAPI.copy('哈哈哈啊哈哈')
+}
+      </pre>
+    </div>
+    <div class="p">
+      <button id="share1">设置分享内容，不调用分享界面</button>
+      <button id="share2">直接分享</button>
+      <script>
+      $('share1').onclick = function() {
+        NEWSAPPAPI.share.setData({
+          wbText: '微博文案',
+          wbPhoto: '微博图片',
+          wxText: '微信文案',
+          wxTitle: '微信标题',
+          wxUrl: '微信地址',
+          wxPhoto: '微信图片'
+        })
+      }
+      $('share2').onclick = function() {
+        NEWSAPPAPI.share.invoke({
+          wbText: '微博文案2',
+          wbPhoto: '微博图片2',
+          wxText: '微信文案2',
+          wxTitle: '微信标题2',
+          wxUrl: '微信地址2',
+          wxPhoto: '微信图片2'
+        }, function() {
+          alert('share done')
+        })
+      }
+      </script>
+      <pre>
+NEWSAPPAPI.share.setData({
+  wbText: '微博文案',
+  wbPhoto: '微博图片',
+  wxText: '微信文案',
+  wxTitle: '微信标题',
+  wxUrl: '微信地址',
+  wxPhoto: '微信图片'
+})
+NEWSAPPAPI.share.invoke({
+  wbText: '微博文案2',
+  wbPhoto: '微博图片2',
+  wxText: '微信文案2',
+  wxTitle: '微信标题2',
+  wxUrl: '微信地址2',
+  wxPhoto: '微信图片2'
+}, function() {
+  alert('share done')
+})
+      </pre>
+    </div>
+    <div class="p">
+      <button id="trash">trashid：设备唯一ID</button>
+      <script>
+      $('trash').onclick = function() {
+        NEWSAPPAPI.trash(function(r) {
+          alert(JSON.stringify(r))
+        })
+      }
+      </script>
+      <pre>
+NEWSAPPAPI.trash(function(r) {
+  alert(JSON.stringify(r))
+})
+      </pre>
+    </div>
+    <div class="p">
+      <button id="device">设备信息</button>
+      <script>
+      $('device').onclick = function() {
+        NEWSAPPAPI.device(function(r) {
+          alert(JSON.stringify(r))
+        })
+      }
+      </script>
+      <pre>
+NEWSAPPAPI.device(function(r) {
+  alert(JSON.stringify(r))
+})
+      </pre>
+    </div>
+    <div class="p">
+      <button id="upload1">上传图片</button>
+      <button id="upload2">上传图片(android打开摄像头)</button>
+      <script>
+        $('upload1').onclick = function() {
+          NEWSAPPAPI.upload(function(r) {
+            alert(JSON.stringify(r))
+          })
+        }
+        $('upload2').onclick = function() {
+          NEWSAPPAPI.upload({
+            width: 300,
+            type: 'camera',
+            loadingStart: function(){
+              console.log('starting')
+            },
+            loadingEnd: function(){
+              console.log('ended')
+            }
+          }, function(img) {
+            alert(img)
+          })
+        }
+      </script>
+      <pre>
+NEWSAPPAPI.upload(function(r) {
+  alert(JSON.stringify(r))
+})
+NEWSAPPAPI.upload({
+  width: 300,
+  type: 'camera',
+  loadingStart: function(){
+    console.log('starting')
+  },
+  loadingEnd: function(){
+    console.log('ended')
+  }
+}, function(img) {
+  alert(img)
+})
+      </pre>
+    </div>
+    <div class="p">
+      <button id="ui1">设置标题</button>
+      <button id="ui2">设置右上角icon</button>
+      <button id="ui3">设置右上角icon为刷新</button>
+      <script>
+        $('ui1').onclick = function() {
+          NEWSAPPAPI.ui.title('新标题')
+        }
+        $('ui2').onclick = function() {
+          NEWSAPPAPI.ui.button('icon', function() {
+            alert('icon callback')
+          })
+        }
+        $('ui3').onclick = function() {
+          NEWSAPPAPI.ui.button('刷新')
+        }
+      </script>
+      <pre>
+NEWSAPPAPI.ui.title('新标题')
+NEWSAPPAPI.ui.button('icon', function() {
+  alert('icon callback')
+})
+NEWSAPPAPI.ui.button('刷新')
+      </pre>
+    </div>
+    <div class="p">
+      <button id="location1">获取位置</button>
+      <button id="location2">改变位置</button>
+      <script>
+        $('location1').onclick = function() {
+          NEWSAPPAPI.location.get(function(i) {
+            alert(JSON.stringify(i))
+          })
+        }
+        $('location2').onclick = function() {
+          NEWSAPPAPI.location.change(function(i) {
+            alert(JSON.stringify(i))
+          })
+        }
+      </script>
+      <pre>
+NEWSAPPAPI.location.get(function(i) {
+  alert(JSON.stringify(i))
+})
+NEWSAPPAPI.location.change(function(i) {
+  alert(JSON.stringify(i))
+})
+      </pre>
+    </div>
+    <!-- <div class="p">
+      <button id="settings">settings(v16+)</button>
+      <script>
+        $('settings').onclick = function() {
+          NEWSAPPAPI.settings(function(r) {
+            alert(JSON.stringify(r))
+          })
+        }
+      </script>
+      <pre>
+        NEWSAPPAPI.settings(function(r) {
+          alert(JSON.stringify(r))
+        })
+      </pre>
+    </div> -->
+    <div class="p">
+      <div class="open">
+        <button data-param="BNTSL4G800031H2L">doc</button>
+        <button data-param="VBOOFPEVP">video</button>
+        <button data-param="0096/96536">photo</button>
+        <button data-param="88419">live</button>
+        <button data-param="http://c.m.163.com/news/a/BPBLV5QQ0001124J.html">web</button>
+        <button data-param="S1465463146100">special</button>
+      </div>
+      <script>
+        document.querySelector('.open').onclick = function(e) {
+          NEWSAPPAPI.open(e.target.dataset.param)
+        }
+      </script>
+      <pre>
+NEWSAPPAPI.open(e.target.dataset.param)
+      </pre>
+    </div>
+
+  </body>
+
+  </html>
