@@ -1,7 +1,7 @@
 {
   "name": "newsapp",
-  "version": "1.1.0",
-  "description": "Protocals for netease newsapp",
+  "version": "1.1.1",
+  "description": "Interfaces for netease newsapp",
   "main": "dist/newsapp.js",
   "jsnext:main": "dist/newsapp.mjs",
   "scripts": {
