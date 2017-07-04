@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>demo</title>
-    <script type="text/javascript" src="http://img6.cache.netease.com/utf8/3g/libs/newsapp.1.1.0.js"></script>
+    <script type="text/javascript" src="http://img6.cache.netease.com/utf8/3g/libs/newsapp.1.1.4.js"></script>
     <style>
       .p {
         margin-bottom: 15px;
@@ -34,11 +34,11 @@
         })
         NEWSAPPAPI.share.invoke({
           wbText: '微博文案2',
-          wbPhoto: '微博图片2',
+          wbPhoto: 'http://img1.cache.netease.com/lady/luoma/001jifen/00bingo/0314/00.jpg',
           wxText: '微信文案2',
           wxTitle: '微信标题2',
-          wxUrl: '微信地址2',
-          wxPhoto: '微信图片2'
+          wxUrl: 'http://img1.cache.netease.com/lady/luoma/001jifen/00bingo/0314/00.jpg',
+          wxPhoto: 'http://img1.cache.netease.com/lady/luoma/001jifen/00bingo/0314/00.jpg'
         }, function() {
           alert('share done')
         })
@@ -63,6 +63,7 @@ NEWSAPPAPI.share.invoke({
     <div class="p">
       <button id="login1">获取用户信息（不打开客户端）</button>
       <button id="login2">登录</button>
+      <button id="cookie">获取cookie</button>
       <script type="text/javascript">
         $('login1').onclick = function() {
           NEWSAPPAPI.login(function(userInfo) {
@@ -71,9 +72,14 @@ NEWSAPPAPI.share.invoke({
           })
         }
         $('login2').onclick = function() {
-          NEWSAPPAPI.login(function(userInfo) {
+          NEWSAPPAPI.ui.title('头条集卡兑大奖')
+          NEWSAPPAPI.login(true, function(userInfo) {
             alert(JSON.stringify(userInfo))
+            alert('cookie ' + document.cookie)
           })
+        }
+        $('cookie').onclick = function() {
+          alert('cookie ' + document.cookie)
         }
       </script>
       <pre>
@@ -81,7 +87,7 @@ NEWSAPPAPI.login(function(userInfo) {
   alert(JSON.stringify(userInfo))
   alert('cookie ' + document.cookie)
 })
-NEWSAPPAPI.login(function(userInfo) {
+NEWSAPPAPI.login(true, function(userInfo) {
   alert(JSON.stringify(userInfo))
 })
       </pre>
@@ -107,20 +113,20 @@ $('copy').onclick = function() {
       $('share1').onclick = function() {
         NEWSAPPAPI.share.setData({
           wbText: '微博文案',
-          wbPhoto: '微博图片',
+          wbPhoto: 'http://img1.cache.netease.com/lady/luoma/001jifen/00bingo/0314/00.jpg',
           wxText: '微信文案',
           wxTitle: '微信标题',
-          wxUrl: '微信地址',
+          wxUrl: 'http://img1.cache.netease.com/lady/luoma/001jifen/00bingo/0314/00.jpg',
           wxPhoto: '微信图片'
         })
       }
       $('share2').onclick = function() {
         NEWSAPPAPI.share.invoke({
           wbText: '微博文案2',
-          wbPhoto: '微博图片2',
+          wbPhoto: 'http://img1.cache.netease.com/lady/luoma/001jifen/00bingo/0314/00.jpg',
           wxText: '微信文案2',
           wxTitle: '微信标题2',
-          wxUrl: '微信地址2',
+          wxUrl: 'http://img1.cache.netease.com/lady/luoma/001jifen/00bingo/0314/00.jpg',
           wxPhoto: '微信图片2'
         }, function() {
           alert('share done')

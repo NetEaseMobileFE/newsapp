@@ -4,6 +4,7 @@ Interfaces for netease newsapp
 > Start from [rollup-starter-project](https://github.com/rollup/rollup-starter-project)
 
 ## Usage
+[demo](http://f2e.developer.163.com/ybduan/newsappapi/demo.html)
 
 ```
 npm i --save newsapp
